@@ -10,13 +10,16 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader(
-    "Access-Control-Allow-Methods",
-    "GET, PUT, POST, PATCH, DELETE"
-  );
-  res.setHeader("Access-COntrol-Allow-Headers", "Content-Type, Authorization");
-  next();
+    res.setHeader("Access-Control-Allow-Origin", "*");
+    res.setHeader(
+        "Access-Control-Allow-Methods",
+        "GET, PUT, POST, PATCH, DELETE"
+    );
+    res.setHeader(
+        "Access-COntrol-Allow-Headers",
+        "Content-Type, Authorization"
+    );
+    next();
 });
 
 app.use("/feed", feedRoutes);
