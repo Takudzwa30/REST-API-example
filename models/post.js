@@ -8,7 +8,7 @@ const postSchema = new Schema(
             type: String,
             required: true,
         },
-        imagesUrl: {
+        imageUrl: {
             type: String,
             required: true,
         },
