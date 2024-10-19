@@ -44,7 +44,6 @@ exports.signup = (req, res, next) => {
 
 exports.login = (req, res, next) => {
   const email = req.body.email;
-  const name = req.body.name;
   const password = req.body.password;
 
   let loadedUser;
@@ -52,7 +51,7 @@ exports.login = (req, res, next) => {
   User.findOne({ email: email })
     .then((user) => {
       if (!user) {
-        const error = new Error("A user with this emaiul could not be found");
+        const error = new Error("A user with this email could not be found");
         error.statusCode = 401;
         throw error;
       }
