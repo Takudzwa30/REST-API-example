@@ -45,9 +45,9 @@ app.use((req, res, next) => {
     "GET, PUT, POST, PATCH, DELETE, OPTIONS"
   );
   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  
+
   // Handle preflight requests for CORS
-  if (req.method === 'OPTIONS') {
+  if (req.method === "OPTIONS") {
     return res.sendStatus(204); // No content for preflight
   }
 
@@ -78,3 +78,5 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
+
+export default app;
