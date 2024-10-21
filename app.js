@@ -39,8 +39,26 @@ app.use(
 );
 app.use("/images", express.static(path.join(__dirname, "images")));
 
+app.options("*", (req, res) => {
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://fullstack-rho-mauve.vercel.app"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, PUT, POST, PATCH, DELETE, OPTIONS"
+  );
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.sendStatus(204); // No Content
+});
+
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "*");
+  // res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Origin",
+    "https://fullstack-rho-mauve.vercel.app"
+  );
+
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, PUT, POST, PATCH, DELETE"
