@@ -70,7 +70,8 @@ app.use((error, req, res, next) => {
 // MongoDB connection
 mongoose
   .connect(
-    "mongodb+srv://takudzwamushai:QtOFVsXgKrdHKl9c@cluster0.fivjgzv.mongodb.net/messages?retryWrites=true&w=majority&appName=Cluster0"
+    process.env.MONGODB_URI ||
+      `mongodb+srv://takudzwamushai:QtOFVsXgKrdHKl9c@cluster0.fivjgzv.mongodb.net/messages?retryWrites=true&w=majority&appName=Cluster0`
   )
   .then((result) => {
     app.listen(process.env.PORT || 8080);
